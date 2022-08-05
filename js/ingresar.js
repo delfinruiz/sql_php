@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    $("#contenido").load('includes/tabla.php');
+
     $('#btn_ingresar').click(function () {
 
         var nombre = $("#nombre").val();
@@ -30,7 +32,7 @@ $(document).ready(function () {
                     console.log(a);
 
                     if (a == 1) {
-
+                        
                         Swal.fire({
                             title: 'AVISO',
                             position: 'top',
@@ -39,7 +41,7 @@ $(document).ready(function () {
                             icon: 'success'
                         }).then((result) => {
                             if (result.isConfirmed) {
-
+                                $("#contenido").load("includes/tabla.php");
                                 $('#nombre').val("");
                                 $('#edad').val("");
                                 $('#agregar').modal('hide');
@@ -47,7 +49,7 @@ $(document).ready(function () {
                             }
 
                         })
-
+                        
                         return false;
 
                     } else {
@@ -64,9 +66,18 @@ $(document).ready(function () {
 
                     }
 
+
+
                 }
+
+
             });
 
         }
     });
+
+
+
+
+
 });

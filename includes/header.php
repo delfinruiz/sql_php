@@ -11,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="#">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Descripcion</a>
+          <a class="nav-link" href="#">Razas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Nosotros</a>
