@@ -1,14 +1,18 @@
 $(document).ready(function () {
 
-    $("#contenido").load('includes/tabla.php');
+    $('#btn_ingresar').click(function (e) {
 
-    $('#btn_ingresar').click(function () {
+        e.preventDefault();
+        
+        var nombre           = $("#nombre").val();
+        var edad             = $("#edad").val();
+        var fecha_nacimiento = $("#fecha_nacimiento").val();
 
-        var nombre = $("#nombre").val();
-        var edad = $("#edad").val();
+        console.log(fecha_nacimiento);
 
         if (nombre == "" ||
-            edad == "") {
+            edad == "" ||
+            fecha_nacimiento == "") {
 
             Swal.fire({
                 icon: 'error',
@@ -19,12 +23,14 @@ $(document).ready(function () {
             })
 
         } else {
+            
             $.ajax({
                 type: "POST",
                 url: "includes/procesa_insertar.php",
                 data: {
                     nombre,
-                    edad
+                    edad,
+                    fecha_nacimiento
                 },
 
                 success: function (a) {
@@ -41,10 +47,11 @@ $(document).ready(function () {
                             icon: 'success'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                $("#contenido").load("includes/tabla.php");
                                 $('#nombre').val("");
                                 $('#edad').val("");
+                                $('#fecha_nacimiento').val("");
                                 $('#agregar').modal('hide');
+                                lista_mascotas.ajax.reload(null, false);
 
                             }
 
