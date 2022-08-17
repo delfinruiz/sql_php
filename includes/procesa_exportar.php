@@ -1,43 +1,51 @@
 <?php
 
-    require "../vendor/autoload.php";
-    include_once "../conexion/conexion.php";
+        $inicio	= (isset($_POST['inicio'])) ? $_POST['inicio'] : '';  
+        $fin	= (isset($_POST['fin'])) ? $_POST['fin'] : '';  
 
-    use PhpOffice\PhpSpreadsheet\{Spreadsheet, IOFactory};
+        require "../vendor/autoload.php";
+        include_once "../conexion/conexion.php";
 
-    $sentencia = $base_de_datos->query("select id, nombre, edad, fecha from mascotas");
-    $mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        use PhpOffice\PhpSpreadsheet\Spreadsheet;
+        use PhpOffice\PhpSpreadsheet\IOFactory;
 
-    $excel = new Spreadsheet();
-    $hojaActiva = $excel->getActiveSheet();
-    $hojaActiva->setTitle("Mascotas");
-
-    $hojaActiva->getColumnDimension('A')->setWidth(20);
-    $hojaActiva->setCellValue('A1', 'ID');
-    $hojaActiva->getColumnDimension('B')->setWidth(20);
-    $hojaActiva->setCellValue('B1', 'NOMBRE');
-    $hojaActiva->getColumnDimension('C')->setWidth(20);
-    $hojaActiva->setCellValue('C1', 'EDAD');
-    $hojaActiva->getColumnDimension('D')->setWidth(20);
-    $hojaActiva->setCellValue('D1', 'FECHA DE NACIMIENTO');
-
-    $fila = 2;
-
-    foreach($mascotas as $mascota){
-        
-        $hojaActiva->setCellValue('A'.$fila, $mascota->id);
-        $hojaActiva->setCellValue('B'.$fila, $mascota->nombre);
-        $hojaActiva->setCellValue('C'.$fila, $mascota->edad);
-        $hojaActiva->setCellValue('D'.$fila, $mascota->fecha);
-
-        $fila++;
-
-    } 
-
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename="mascotas.xlsx"');
-    header('Cache-Control: max-age=0');
+        $sentencia = $base_de_datos->query("SELECT id, nombre, edad, fecha FROM mascotas WHERE fecha BETWEEN '$inicio' AND '$fin'");
+        $mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     
-    $writer = IOFactory::createWriter($excel, 'Xlsx');
-    $writer->save('php://output');
+        $excel = new Spreadsheet();
+        $hojaActiva = $excel->getActiveSheet();
+        $hojaActiva->setTitle("Mascotas");
+    
+        $hojaActiva->getColumnDimension('A')->setWidth(20);
+        $hojaActiva->setCellValue('A1', 'ID');
+        $hojaActiva->getColumnDimension('B')->setWidth(20);
+        $hojaActiva->setCellValue('B1', 'NOMBRE');
+        $hojaActiva->getColumnDimension('C')->setWidth(20);
+        $hojaActiva->setCellValue('C1', 'EDAD');
+        $hojaActiva->getColumnDimension('D')->setWidth(20);
+        $hojaActiva->setCellValue('D1', 'FECHA DE NACIMIENTO');
+    
+        $fila = 2;
+    
+        foreach($mascotas as $mascota){
+            
+            $hojaActiva->setCellValue('A'.$fila, $mascota->id);
+            $hojaActiva->setCellValue('B'.$fila, $mascota->nombre);
+            $hojaActiva->setCellValue('C'.$fila, $mascota->edad);
+            $hojaActiva->setCellValue('D'.$fila, $mascota->fecha);
+    
+            $fila++;
+    
+        } 
+        
+    
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="mascotas.xlsx"');
+        header('Cache-Control: max-age=0');
+        
+        $writer = IOFactory::createWriter($excel, 'Xlsx');
+        $writer->save('php://output');
+    
+        exit();
+
 ?>

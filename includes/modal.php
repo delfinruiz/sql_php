@@ -91,21 +91,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+            <form action="includes/procesa_exportar.php" method="post" >
                 <div class="input-group">
                     <span class="input-group-text">Fecha Ini  </span>
-                    <input type="date" aria-label="inicio" class="form-control">
+                    <input type="date" aria-label="inicio" class="form-control" name="inicio" required>
                 </div>
 
                 <div class="input-group mt-3">
                     <span class="input-group-text">Fecha Fin</span>
-                    <input type="date" aria-label="termino" class="form-control">
+                    <input type="date" aria-label="termino" class="form-control" name="fin" required>
                 </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="btn_filtrar">Filtrar</button>
+                </div>
+            </form>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Filtrar</button>
-            </div>
+
         </div>
     </div>
 </div>
