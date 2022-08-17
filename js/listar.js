@@ -26,7 +26,7 @@ $(document).ready(function () {
           "data": "fecha"
         },
         {
-          "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-warning btn_editar'><i class='bi bi-pencil-square'></i></button> <button class='btn btn-danger btn_eliminar'><i class='bi bi-trash'></i></button></div></div>"
+          "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-amarillo-primario btn_editar'><i class='bi bi-pencil-square'></i></button> <button class='btn btn-rojo-primario btn_eliminar'><i class='bi bi-trash'></i></button></div></div>"
         
         }
       ]

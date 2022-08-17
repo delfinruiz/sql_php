@@ -31,8 +31,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="btn_ingresar">Guardar</button>
+                <button type="button" class="btn btn-rojo-secundario" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-verde-primario" id="btn_ingresar">Guardar</button>
             </div>
         </div>
     </div>
@@ -74,8 +74,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="btn_modificar">Guardar</button>
+                <button type="button" class="btn btn-rojo-secundario" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-verde-primario" id="btn_modificar">Guardar</button>
             </div>
         </div>
     </div>
@@ -103,8 +103,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" id="btn_filtrar">Filtrar</button>
+                    <button type="button" class="btn btn-rojo-secundario" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-verde-primario" id="btn_filtrar">Filtrar</button>
                 </div>
             </form>
 

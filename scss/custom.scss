@@ -1,1 +1,22 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Creamos los colores oficiales
+
+$custom-colors: (
+    "morado-primario": #312945,
+    "morado-secundario": #373050,
+    "amarillo-primario": #C9D115,
+    "amarillo-secundario": #AEAE15,
+    "rojo-primario": #BA2416,
+    "rojo-secundario": #FA301E,
+    "verde-primario": #67FA4D
+);
+
+// Merge con el mapa actual de colores
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$enable-negative-margins: true;
+
 @import "../node_modules/bootstrap/scss/bootstrap";

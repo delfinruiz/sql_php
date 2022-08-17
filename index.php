@@ -33,10 +33,10 @@
 
 				<div class="col-3 d-grid gap-2 d-md-flex justify-content-md-end my-2">
 
-					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exportar"><i
+					<button type="button" class="btn btn-amarillo-secundario" data-bs-toggle="modal" data-bs-target="#exportar"><i
 							class="bi bi-file-earmark-excel"></i></button>
 
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar"><i
+					<button type="button" class="btn btn-morado-secundario" data-bs-toggle="modal" data-bs-target="#agregar"><i
 							class="bi bi-plus-circle"></i></button>
 
 				</div>
